@@ -10,10 +10,21 @@
  */
 class Solution {
 public:
+    int getLength(ListNode* head){
+        ListNode* temp = head;
+        int len = 0;
+        while(temp!=0){
+            temp = temp->next;
+            len++;
+        }
+        return len;
+    }
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
               if(l1==NULL) return l2;
               if(l2==NULL) return l1;
-           
+              int len1 = getLength(l1);
+              int len2 = getLength(l2);
+              if((len1>=0 && len1<=100) && (len2>=0 && len2<=100)){
 
               ListNode* ansHead = NULL;
               ListNode* ansTail = NULL;
@@ -71,6 +82,9 @@ public:
               
           
             return ansHead;
-        
+        }
+        else{
+            return 0;
+        }
     }
 };
